@@ -12,8 +12,7 @@ padding: 0;
   background-color: gray;
   background-blend-mode: multiply;
 
-  width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .content {
@@ -46,10 +45,9 @@ nav{
 }
 
 h1{
-  font-size: 90px;
+  font-size: clamp(3rem, 5vw, 6rem);
   font-family: Montserrat;
   font-weight: bold;
-  line-height: 100px;
   margin-bottom: 20px;
 
 }
@@ -178,15 +176,30 @@ ul li:hover{
 
 h2{
   font-family: montserrat;
-  font-size: 125px;
-  color: rgb(255, 240, 227);
+  font-size: clamp(5rem, 7vw, 8rem);
+  
   padding-left: 30px;
   padding-right: 30px;
   padding-top: 140px;
+    --s: 0.1em;   /* the thickness of the line */
+    --c: #afa060;
+    
+    color: #fff2e700;
+    padding-bottom: var(--s);
+    background: 
+      linear-gradient(90deg,var(--c) 50%,#000 0) calc(100% - var(--_p,0%))/200% 100%,
+      linear-gradient(var(--c) 0 0) 0% 100%/var(--_p,0%) var(--s) no-repeat;
+    -webkit-background-clip: text,padding-box;
+            background-clip: text,padding-box;
+    transition: 0.5s;
 }
+
+h2:hover {--_p: 100%}
 
 .third_layer{
   background-image: url(wallpaperflare.com_wallpaper.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
   height: 800px;
   object-fit: contain;
   background-color: rgb(235, 235, 235);
@@ -253,6 +266,18 @@ h5{
   flex-direction: row;
 }
 
+.logo1{
+  width: 100px;
+  padding: 50px;
+  opacity: .8;
+  transition: width 500ms;
+}
+
+.logo1:hover{
+  width: 200px;
+  color: #111;
+}
+
 .logo{
   width: 150px;
 }
@@ -260,4 +285,11 @@ h5{
 ul {
   background: none;
   padding: 20px;
+}
+
+.contacts{
+  flex-direction: row;
+  display: flex;
+  width: 50%;
+  justify-content: space-evenly;
 }
